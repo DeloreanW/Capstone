@@ -1,7 +1,7 @@
 import html from "html-literal";
 import * as views from "./views";
 
-export default () =>
+export default state =>
   html`
-    ${views["Home"]()} ${views["Bio"]()} ${views["Order"]()} ${views["Region"]()}
+    ${views[state.view](state)}
   `;

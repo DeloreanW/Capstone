@@ -1,4 +1,3 @@
 import html from "html-literal";
 
-export default () => html`
-`
+export default () => html``;
