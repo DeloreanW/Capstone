@@ -36,7 +36,7 @@ router.hooks({
       case "Home":
         axios
           .get(
-            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=Milwaukee`
+            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=Chicago`
           )
           .then(response => {
             const kelvinToFahrenheit = kelvinTemp =>
