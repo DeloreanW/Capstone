@@ -7,8 +7,8 @@ export default state => html`
         <th>United States</th>
         <th>Europe</th>
       </tr>
-      ${state.Region.map(Region => {
-        return ``;
+      ${state.Shoe.map(shoe => {
+        return `${shoe}`;
       }).join("")}
     </table>
   </section>

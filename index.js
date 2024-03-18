@@ -54,16 +54,16 @@ router.hooks({
             done();
           });
         break;
-      case "Region":
+      case "Shoe":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/Region`)
+          .get(`${process.env.PIZZA_PLACE_API_URL}/Shoe`)
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
             console.log("response", response);
             console.log("response data", response.data);
 
-            store.Region.Regions = response.data;
+            store.Shoe.Shoe = response.data;
 
             done();
           })

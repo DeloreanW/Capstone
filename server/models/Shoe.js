@@ -1,28 +1,32 @@
 import mongoose from "mongoose";
 
-const pizzaSchema = new mongoose.Schema({
+const shoeSchema = new mongoose.Schema({
   customer: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  crust: {
-    type: String,
-    required: true,
-    enum: ["thin", "chicago", "deep-dish", "hella-thick"]
-  },
-  cheese: {
-    type: String,
-    validate: /^[A-Za-z0-9 ]*$/
-  },
-  sauce: {
+  shoeBrand: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  toppings: [String]
+  shoeSize: {
+    type: String,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  price: {
+    type: String,
+    required: true,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  region: {
+    type: String,
+    required: true,
+    validate: /^[A-Za-z0-9 ]*$/
+  }
 });
 
-const Pizza = mongoose.model("Pizza", pizzaSchema);
+const Shoe = mongoose.model("Shoe", shoeSchema);
 
-export default Pizza;
+export default Shoe;
