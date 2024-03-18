@@ -1,14 +1,14 @@
 import { Router } from "express";
-import Region from "../models/Region.js";
+import Shoe from "../models/Shoe.js";
 
 const router = Router();
 
 // Create pizza route
 router.post("/", async (request, response) => {
   try {
-    const newPizza = new Pizza(request.body);
+    const newShoe = new Shoe(request.body);
 
-    const data = await newPizza.save();
+    const data = await newShoe.save();
 
     response.json(data);
   } catch (error) {
@@ -28,7 +28,7 @@ router.get("/", async (request, response) => {
     // Store the query params into a JavaScript Object
     const query = request.query; // Defaults to an empty object {}
 
-    const data = await Pizza.find(query);
+    const data = await Shoe.find(query);
 
     response.json(data);
   } catch (error) {
