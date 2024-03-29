@@ -51,37 +51,25 @@ footer {
   margin: 1rem;
 }
 
-#jumbotron > a {
-  text-decoration: none;
-  background-color: gray;
-  font-size: 1.5em;
-  padding: 1.5rem;
-  border-radius: 10px;
+#shoes {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  height: auto;
+  width: 92.5%;
+  margin: auto;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+#shoes tbody {
+  width: 100%;
 }
 
-nav > i {
-  padding: 1rem;
-  font-size: 2em;
+#shoes th {
+  text-align: left;
 }
 
-nav > ul {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 0;
+#shoes td,th {
+  width: 25%;
 }
-
-nav > ul > li {
-  padding: 0.5rem;
-  list-style-type: none;
-}
-
 
 #oops404 img {
   max-width: 40%;
@@ -159,4 +147,5 @@ nav > ul > li {
     margin-right: 1rem;
   }
 }
+
 

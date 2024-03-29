@@ -102,4 +102,4 @@ app.use("/shoes", shoes);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
-app.listen(PORT, () => console.log(`Listening on port 4040 ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

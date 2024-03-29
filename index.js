@@ -13,11 +13,11 @@ function render(state = store.Home) {
       ${Main(state)}
       ${Footer()}
     `;
-  afterRender();
   router.updatePageLinks();
+  afterRender(state);
 }
 
-function afterRender() {
+function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
@@ -54,6 +54,26 @@ router.hooks({
             done();
           });
         break;
+
+      case "Shoes":
+        axios
+          .get(
+            `https://the-sneaker-database.p.rapidapi.com/sneakers?api_key=${process.env.RapidApi_API_KEY}`
+          )
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response data", response.data);
+
+            store.Shoes.shoe = response.data.response.shoes;
+
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+
       case "Shoe":
         // New Axios get request utilizing already made environment variable
         axios
