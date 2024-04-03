@@ -54,43 +54,42 @@ router.hooks({
             done();
           });
         break;
-
-      case "Shoes":
-        axios
-          .get(
-            `https://the-sneaker-database.p.rapidapi.com/sneakers?api_key=${process.env.RapidApi_API_KEY}`
-          )
-          .then(response => {
-            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
-            console.log("response data", response.data);
-
-            store.Shoes.shoe = response.data.response.shoes;
-
-            done();
-          })
-          .catch(error => {
-            console.log("It puked", error);
-            done();
-          });
-        break;
-
       case "Shoe":
-        // New Axios get request utilizing already made environment variable
+        // TEST IN THUNDERCLIENT FIRST - DON'T JUST PASTE CODE AND HOPE IT WORKS
+
         axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/Shoe`)
+          .get("https://v1-sneakers.p.rapidapi.com/v1/sneakers", {
+            params: {
+              limit: "20"
+            },
+            headers: {
+              "X-RapidAPI-Key": `${process.env.RAPIDAPI_API_KEY}`,
+              "X-RapidAPI-Host": "v1-sneakers.p.rapidapi.com"
+            }
+          })
           .then(response => {
-            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
-            console.log("response", response);
-            console.log("response data", response.data);
-
-            store.Shoe.Shoe = response.data;
-
+            console.log(response.data);
+            store.Shoe.shoes = response.data.results;
+            store.Order.shoes = response.data.results;
             done();
           })
-          .catch(error => {
-            console.log("It puked", error);
-            done();
+          .catch(err => {
+            console.log("No worky: ", err);
           });
+        // axios
+        //   .get(
+        //     `https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=10`
+        //   )
+        //   .then(response => {
+        //     // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+        //     console.log("response data", response.data);
+        //     store.Shoe.shoes = response.data.response.shoes;
+        //     done();
+        //   })
+        //   .catch(error => {
+        //     console.log("It puked", error);
+        //     done();
+        //   });
         break;
       default:
         done();
@@ -101,7 +100,6 @@ router.hooks({
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
-
     render(store[view]);
   }
 });
