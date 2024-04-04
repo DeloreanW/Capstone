@@ -3,7 +3,7 @@ import Shoe from "../models/Shoe.js";
 
 const router = Router();
 
-// Create pizza route
+// Create shoe route
 router.post("/", async (request, response) => {
   try {
     const newShoe = new Shoe(request.body);
@@ -22,7 +22,7 @@ router.post("/", async (request, response) => {
   }
 });
 
-// Get all pizzas route
+// Get all shoes route
 router.get("/", async (request, response) => {
   try {
     // Store the query params into a JavaScript Object

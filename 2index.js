@@ -100,3 +100,6 @@
 //     }
 //   })
 //   .resolve();
+
+// "Bio-
+// To bring inspiration and innovation to every sneakerhead in the world. The statement has three core components: inspiration, innovation, and support.  to expand human potential by. Creating groundbreaking commitment to the sneakerhead community."

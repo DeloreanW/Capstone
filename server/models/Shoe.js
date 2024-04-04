@@ -15,7 +15,7 @@ const shoeSchema = new mongoose.Schema({
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  price: {
+  email: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
