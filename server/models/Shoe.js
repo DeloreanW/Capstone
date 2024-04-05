@@ -1,29 +1,28 @@
 import mongoose from "mongoose";
 
 const shoeSchema = new mongoose.Schema({
-  customer: {
+  firstName: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  shoeBrand: {
+  lastName: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  shoeSize: {
+  shoe: {
+    type: String,
+    required: true,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  size: {
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
   email: {
     type: String,
-    required: true,
-    validate: /^[A-Za-z0-9 ]*$/
-  },
-  region: {
-    type: String,
-    required: true,
-    validate: /^[A-Za-z0-9 ]*$/
+    required: true
   }
 });
 

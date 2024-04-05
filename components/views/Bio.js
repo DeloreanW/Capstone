@@ -9,6 +9,6 @@ export default () => html`
       to expand human potential by. Creating groundbreaking commitment to the
       sneakerhead community.
     </p>
-    <img src="${A11}" alt="" />
+    <img src="${A11}" alt="" width="250" height="250" />
   </div>
 `;

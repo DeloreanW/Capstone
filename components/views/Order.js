@@ -3,13 +3,14 @@ import html from "html-literal";
 export default state => html`
   <section id="order">
     <form id="order" method="POST" action="">
-      <select name="shoes" id="">
+      <label for="dropdown">Shoe:</label>
+      <select name="shoe" id="shoe">
         ${state.shoes.map(shoe => {
           return `<option value="${shoe.name}">${shoe.name}</option>`;
         })}</select
       >
-      <label for="Size">Size:</label>
-        <select id="Size" name="Size">
+      <label for="size">Size:</label>
+        <select id="size" name="size">
           <option value="">Select a Size</option>
           <option value="7">7</option>
           <option value="7.5">7.5</option>
@@ -31,28 +32,28 @@ export default state => html`
         </select>
       </div>
       <div>
-        <label for="First Name">First Name:</label>
+        <label for="firstname">First Name:</label>
         <input
           type="text"
-          name="First Name"
-          id="First Name"
+          name="firstname"
+          id="firstname"
           placeholder="First Name"
           required
         />
       </div>
       <div>
-        <label for="Last Name">Last Name:</label>
+        <label for="lastname">Last Name:</label>
         <input
           type="text"
-          name="Last Name"
-          id="Last Name"
+          name="lastname"
+          id="lastname"
           placeholder="Last Name"
           required
         />
       </div>
       <div>
-        <label for="Email">Email</label>
-        <input type="text" name="Email" id="Email" placeholder="Email" />
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Email" />
       </div>
       <input type="submit" name="submit" value="Subscribe" />
     </form>
