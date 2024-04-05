@@ -22,6 +22,42 @@ function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
+  // Put form sub form here line 26-77 state.view=order
+  if (state.view === "Order") {
+    // Add an event handler for the submit button on the form
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      // Get the form element
+      const inputList = event.target.elements;
+      // console.log("Input Element List", inputList);
+
+      // Create a request body object to send to the API
+      const requestData = {
+        shoe: inputList.shoe.value,
+        size: inputList.size.value,
+        firstName: inputList.firstname.value,
+        lastName: inputList.lastname.value,
+        email: inputList.email.value
+      };
+      // // Log the request body to the console
+      console.log("request Body", requestData);
+
+      axios
+        // Make a POST request to the API to create a new pizza
+        .post(`${process.env.SNEAK_PEAK_API_URL}/shoes`, requestData)
+        .then(response => {
+          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+          store.Shoe.shoes.push(response.data);
+          router.navigate("/Shoe");
+        })
+        // If there is an error log it to the console
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
 
 router.hooks({
@@ -55,8 +91,9 @@ router.hooks({
           });
         break;
       case "Shoe":
+      case "Order": //uncomment out when submitting
         // TEST IN THUNDERCLIENT FIRST - DON'T JUST PASTE CODE AND HOPE IT WORKS
-
+        // Uncomment out this API 97-115
         axios
           .get("https://v1-sneakers.p.rapidapi.com/v1/sneakers", {
             params: {
