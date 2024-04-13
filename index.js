@@ -91,13 +91,13 @@ router.hooks({
           });
         break;
       case "Shoe":
-      case "Order": //uncomment out when submitting
-        // TEST IN THUNDERCLIENT FIRST - DON'T JUST PASTE CODE AND HOPE IT WORKS
+      case "Order": //uncomment out
+        // TEST IN THUNDERCLIENT FIRST -
         // Uncomment out this API 97-115
         axios
           .get("https://v1-sneakers.p.rapidapi.com/v1/sneakers", {
             params: {
-              limit: "20"
+              limit: "50"
             },
             headers: {
               "X-RapidAPI-Key": `${process.env.RAPIDAPI_API_KEY}`,
