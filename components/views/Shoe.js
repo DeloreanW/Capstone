@@ -9,8 +9,6 @@ export default state => html`
               <option value="United States">United States</option>
               <option value="Europe">Europe</option>
             </select>
-            <input type="search" name="filter" id="filter" />
-            <button id="search-button">Search</button>
           </div>
           <table id="shoes">
             <tr>
